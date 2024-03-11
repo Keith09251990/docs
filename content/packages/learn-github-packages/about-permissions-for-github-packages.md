@@ -8,6 +8,914 @@ versions:
   ghec: '*'
 shortTitle: About permissions
 ---
+BlocksScan APIs
+ 2.0.0 
+BlocksScan APIs
+
+Github
+Accounts
+Accounts API
+
+
+
+GET
+/api/accounts
+Get list accounts
+Parameters
+Try it out
+Name	Description
+page
+number
+(query)
+default = 1, maximum = 500
+
+
+limit
+number
+(query)
+default 20, maximum = 50
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+500	
+Server Internal Error
+
+
+GET
+/api/accounts/{hash}
+Get account detail
+Parameters
+Try it out
+Name	Description
+hash *
+string
+(path)
+account address
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+404	
+Not Found
+
+500	
+Server Internal Error
+
+
+GET
+/api/accounts/{hash}/mined
+Get list block create
+Parameters
+Try it out
+Name	Description
+hash *
+(path)
+account address
+
+
+page
+number
+(query)
+default = 1
+
+
+limit
+number
+(query)
+default 20, maximum = 50
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+500	
+Server Internal Error
+
+Blocks
+Blocks API
+
+
+
+GET
+/api/blocks
+Get list blocks
+Parameters
+Try it out
+Name	Description
+page
+number
+(query)
+default = 1, maximum = 500
+
+
+limit
+number
+(query)
+default 20, maximum = 50
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+500	
+Server Internal Error
+
+
+GET
+/api/blocks/{hash}
+Get block detail
+Parameters
+Try it out
+Name	Description
+hash *
+string
+(path)
+block number or block hash
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+404	
+Not Found
+
+500	
+Server Internal Error
+
+
+GET
+/api/blocks/{blockNumber}/address/{address}
+Check exist transaction from/to address inside block
+Parameters
+Try it out
+Name	Description
+blockNumber *
+number
+(path)
+block number
+
+
+address *
+string
+(path)
+address
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+404	
+Not Found
+
+500	
+Server Internal Error
+
+
+GET
+/api/blocks/signers/{blockNumber}
+Get list signers of a block
+Parameters
+Try it out
+Name	Description
+blockNumber *
+number
+(path)
+account address
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+500	
+Server Internal Error
+
+
+GET
+/api/blocks/finality/latestIrreversibleBlock
+Get latest irreversible block
+Parameters
+Try it out
+No parameters
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+500	
+Server Internal Error
+
+Contracts
+Contract API
+
+
+
+GET
+/api/contracts
+Get list verified contract
+Parameters
+Try it out
+Name	Description
+page
+number
+(query)
+default = 1, maximum = 500
+
+
+limit
+number
+(query)
+default 20, maximum = 50
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+500	
+Server Internal Error
+
+
+GET
+/api/contracts/{contractAddress}
+Get contract detail
+Parameters
+Try it out
+Name	Description
+contractAddress
+string
+(path)
+contract address
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+404	
+Not Found
+
+500	
+Server Internal Error
+
+
+GET
+/api/contracts/{contractAddress}/read
+Read all function on contract
+Parameters
+Try it out
+Name	Description
+contractAddress
+string
+(path)
+contract address
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+404	
+Not Found
+
+500	
+Server Internal Error
+
+Transactions
+Transactions API
+
+
+
+GET
+/api/txs/listByType/:txType
+Get list transaction by type
+Parameters
+Try it out
+Name	Description
+txType *
+number
+(path)
+signTxs|normalTxs
+
+
+page
+number
+(query)
+default = 1
+
+
+limit
+number
+(query)
+default 20, maximum = 50
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+500	
+Server Internal Error
+
+
+GET
+/api/txs/listByBlock/{blockNumber}
+Get list txs by block number.
+Parameters
+Try it out
+Name	Description
+blockNumber *
+number
+(path)
+block number
+
+
+page
+number
+(query)
+default = 1
+
+
+limit
+number
+(query)
+default 20, maximum = 100
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+500	
+Server Internal Error
+
+
+GET
+/api/txs/listByAccount/{address}
+Get list txs by account address.
+Parameters
+Try it out
+Name	Description
+address *
+string
+(path)
+account address
+
+
+page
+number
+(query)
+default = 1
+
+
+limit
+number
+(query)
+default 20, maximum = 100
+
+
+tx_type
+string
+(query)
+in|out|all
+
+
+filterAddress
+string
+(query)
+transaction send to/from address
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+500	
+Server Internal Error
+
+
+GET
+/api/txs/{hash}
+Get transaction detail
+Parameters
+Try it out
+Name	Description
+hash *
+string
+(path)
+transaction hash
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+404	
+Not Found
+
+500	
+Server Internal Error
+
+
+GET
+/api/txs/internal/{address}
+Get internal transaction of an address
+Parameters
+Try it out
+Name	Description
+address *
+string
+(path)
+account address
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+404	
+Not Found
+
+500	
+Server Internal Error
+
+
+GET
+/api/logs?tx={hash}
+Get transactions logs
+Parameters
+Try it out
+Name	Description
+hash *
+string
+(path)
+Transaction Hash
+
+
+page
+number
+(query)
+default = 1, maximum = 500
+
+
+limit
+number
+(query)
+default 20, maximum = 50
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+404	
+Not Found
+
+500	
+Server Internal Error
+
+Tokens
+Tokens API
+
+
+
+GET
+/api/tokens/{hash}
+Get token detail
+Parameters
+Try it out
+Name	Description
+hash *
+string
+(path)
+token address
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+404	
+Not Found
+
+500	
+Server Internal Error
+
+
+GET
+/api/tokensinfo/{hash}
+Get token Circulating Supply and Total Supply detail
+Parameters
+Try it out
+Name	Description
+hash *
+string
+(path)
+token address
+
+
+type *
+string
+(query)
+circulatingsupply|totalsupply
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+404	
+Not Found
+
+500	
+Server Internal Error
+
+
+GET
+/api/tokens/{hash}/tokenID/{tokenID}
+Get NFT Metadata details
+Parameters
+Try it out
+Name	Description
+hash *
+string
+(path)
+address
+
+
+tokenID *
+string
+(path)
+tokenID
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+404	
+Not Found
+
+500	
+Server Internal Error
+
+
+GET
+/api/tokens/holding/{tokenType}/{holder}
+Get list token holding of a holder
+Parameters
+Try it out
+Name	Description
+tokenType *
+string
+(path)
+
+holder *
+string
+(path)
+holder address
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+404	
+Not Found
+
+500	
+Server Internal Error
+
+Token
+
+
+GET
+/api/tokens
+Get list tokens
+Parameters
+Try it out
+Name	Description
+type
+string
+(query)
+
+page
+number
+(query)
+default = 1
+
+
+limit
+number
+(query)
+default 20, maximum = 50
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+500	
+Server Internal Error
+
+
+GET
+/api/token-holders
+Get list xrc20 token holder. Require 1 of 2 conditions - address | hash
+Parameters
+Try it out
+Name	Description
+address
+string
+(query)
+token address
+
+
+hash
+string
+(query)
+account address
+
+
+page
+number
+(query)
+default = 1
+
+
+limit
+number
+(query)
+default 20, maximum = 50
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+500	
+Server Internal Error
+
+
+GET
+/api/token-txs/{tokenType}
+Get list token transactions.
+Parameters
+Try it out
+Name	Description
+tokenType *
+string
+(path)
+
+holder
+string
+(query)
+holder address
+
+
+token
+string
+(query)
+token address
+
+
+page
+number
+(query)
+default = 1
+
+
+limit
+number
+(query)
+default 20, maximum = 1000
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+500	
+Server Internal Error
+
+
+GET
+/api/token-txs/{tokenType}/{txHash}
+Get list token transactions by transaction hash.
+Parameters
+Try it out
+Name	Description
+tokenType *
+string
+(path)
+
+txHash
+string
+(path)
+token address
+
+
+holder
+string
+(query)
+holder address
+
+
+page
+number
+(query)
+default = 1
+
+
+limit
+number
+(query)
+default 20, maximum = 1000
+
+
+Responses
+Response content type
+
+application/json
+Code	Description
+200	
+OK
+
+400	
+Bad Request
+
+500	
+Server Internal Error
+
+
 
 {% ifversion packages-registries-v2 %}
 The permissions for packages can be scoped either to a user or an organization or to a repository.
